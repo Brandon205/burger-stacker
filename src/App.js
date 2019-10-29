@@ -22,11 +22,21 @@ class App extends React.Component {
     stack: []
   }
 
+  handleAddToStack = (e) => {
+    let newStack = [...this.state.stack]
+    newStack.push(e.target.name);
+    this.setState({ stack: newStack });
+  }
+
+  handleClearStack = () => {
+    this.setState({ stack: [] });
+  }
+
   render() {
     return (
       <div className='main-container'>
-        <BurgerList />
-        <BurgerStack />
+        <BurgerList ingredients={this.state.ingredients} onClick={this.handleAddToStack} />
+        <BurgerStack value={this.state.stack} onClick={this.handleClearStack}/>
       </div>
     )
   }
