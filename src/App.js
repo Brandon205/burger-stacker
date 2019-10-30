@@ -19,12 +19,24 @@ class App extends React.Component {
       {name: 'Bacon', color: 'maroon'},
       {name: 'Onion', color: 'lightyellow'}
     ],
-    stack: []
+    stack: [],
+    name: '',
+    color: ''
   }
 
   handleAddToStack = (e) => {
-    let newStack = [...this.state.stack]
-    newStack.push(e.target.name);
+    let newStack = [...this.state.stack];
+    // console.log(e.target)
+    // console.log(e.target.name)
+    // console.log(e.target.color)
+    newStack.unshift({'name': [e.target.name], 'color': [e.target.color]});
+    console.log(newStack);
+    this.setState({ stack: newStack });
+  }
+
+  handleUndoClick = () => {
+    let newStack = [...this.state.stack];
+    newStack.shift();
     this.setState({ stack: newStack });
   }
 
@@ -32,11 +44,21 @@ class App extends React.Component {
     this.setState({ stack: [] });
   }
 
+  handleChange =(e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSubmitClick = () => {
+    let ingredientsCopy = [...this.state.ingredients];
+    ingredientsCopy.push({name: this.state.name, color: this.state.color});
+    this.setState({ ingredients: ingredientsCopy });
+  }
+
   render() {
     return (
       <div className='main-container'>
-        <BurgerList ingredients={this.state.ingredients} onClick={this.handleAddToStack} />
-        <BurgerStack value={this.state.stack} onClick={this.handleClearStack}/>
+        <BurgerList ingredients={this.state.ingredients} onClick={this.handleAddToStack} onChange={this.handleChange} textVal={this.state.textVal} onSubmitClick={this.handleSubmitClick} />
+        <BurgerStack value={this.state.stack} onClick={this.handleClearStack} onUndoClick={this.handleUndoClick} />
       </div>
     )
   }
