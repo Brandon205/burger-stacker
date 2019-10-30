@@ -2,7 +2,7 @@ import React from 'react';
 
 class BurgerList extends React.Component {
   render() {
-    let allIngredients = this.props.ingredients.map((ingredient, id) => <div className="list-component" ><p className="list" key={id}>{ingredient.name}</p> <button onClick={(e) => this.props.onClick(e, id)}>></button></div>)
+    let allIngredients = this.props.ingredients.map((ingredient, id) => <div className="list-component"  key={id}><p className="list">{ingredient.name}</p> <button onClick={(e) => this.props.onClick(e, id)}>></button></div>)
     return (
       <div className="fullList">
         {allIngredients}

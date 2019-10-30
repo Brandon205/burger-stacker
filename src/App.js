@@ -25,7 +25,6 @@ class App extends React.Component {
   }
 
   handleAddToStack = (e, ingred) => {
-    e.preventDefault();
     let newStack = [...this.state.stack];
     newStack.unshift(this.state.ingredients[ingred]);
     this.setState({ stack: newStack });
