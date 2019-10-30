@@ -6,7 +6,7 @@ class BurgerStack extends React.Component {
     return (
       <div className="stack" >
         <button className="undo" onClick={this.props.onUndoClick}>Undo</button>
-        {burgerPieces}
+        <div>{burgerPieces}</div>
         <button onClick={this.props.onClick} className="clear">Clear</button>
       </div>
     )
