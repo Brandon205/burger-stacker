@@ -2,17 +2,9 @@ import React from 'react';
 
 class BurgerList extends React.Component {
   render() {
-    let allIngredients = this.props.ingredients.map(ingredient => {
-      // console.log(ingredient);
-      return (
-        <div className="list-component">
-          <div className="list">{ingredient.name}</div>
-          <button name={ingredient.name} colour={ingredient.color} onClick={this.props.onClick} >></button>
-        </div>
-      )
-    })
+    let allIngredients = this.props.ingredients.map((ingredient, id) => <div className="list-component" ><p className="list" key={id}>{ingredient.name}</p> <button onClick={(e) => this.props.onClick(e, id)}>></button></div>)
     return (
-      <div>
+      <div className="fullList">
         {allIngredients}
         <input type="text" name="name" onChange={this.props.onChange} value={this.props.textVal} placeholder="Name" />
         <input type="text" name="color" onChange={this.props.onChange} value={this.props.textVal} placeholder="Color" />

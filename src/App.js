@@ -24,13 +24,10 @@ class App extends React.Component {
     color: ''
   }
 
-  handleAddToStack = (e) => {
+  handleAddToStack = (e, ingred) => {
+    e.preventDefault();
     let newStack = [...this.state.stack];
-    // console.log(e.target)
-    // console.log(e.target.name)
-    // console.log(e.target.color)
-    newStack.unshift({'name': [e.target.name], 'color': [e.target.color]});
-    console.log(newStack);
+    newStack.unshift(this.state.ingredients[ingred]);
     this.setState({ stack: newStack });
   }
 

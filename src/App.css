@@ -1,7 +1,6 @@
 button {
   display: inline;
   margin-left: 10px;
-  padding:10px;
 }
 
 .App {
@@ -18,17 +17,42 @@ button {
 
 .list-component {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin: 7px auto;
+  margin: 2px auto;
 }
 
 .list {
   display: inline;
+  margin: 0;
 }
 
 .clear, .undo {
   display: inline-block;
   margin: 15px auto;
+  padding: 10px;
+  border-radius: 20%;
+}
+
+.stack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border: 3px solid black;
+  border-radius: 10%;
+  min-width: 30vw;
+  min-height: 70vh;
+}
+
+.fullList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border: 3px solid black;
+  border-radius: 10%;
+  min-width: 30vw;
+  min-height: 70vh;
 }
 
